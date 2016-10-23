@@ -24,14 +24,14 @@ public class ChuckWeb implements SparkApplication {
         final Chuck chuck = new Chuck();    
         post("/random", (req, res) -> chuck.random());
         post("/id", (req, res) -> chuck.getById(req.queryParams("id")));
-        post("/setName", (req, res) -> {
+        post("/setName", (req, res) ->
             chuck.alterName(
                 req.queryParams("firstName"),
                 req.queryParams("lastName")
             );          
             res.status(200);
             return res;
-        });
+        );
     }
 
 }
